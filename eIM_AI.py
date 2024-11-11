@@ -7,7 +7,7 @@
 
 import streamlit as st
 #from google.cloud import aiplatform
-from google.oauth2 import service_account
+#from google.oauth2 import service_account
 
 import base64
 import vertexai
