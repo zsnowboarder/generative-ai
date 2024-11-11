@@ -2,8 +2,8 @@
 # coding: utf-8
 
 # In[1]:
-pip install --upgrade google-cloud-aiplatform
-gcloud auth application-default login
+#pip install --upgrade google-cloud-aiplatform
+#gcloud auth application-default login
 
 import streamlit as st
 from google.cloud import aiplatform
