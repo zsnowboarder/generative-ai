@@ -6,12 +6,9 @@
 #gcloud auth application-default login
 
 import streamlit as st
-#from google.cloud import aiplatform
-#from google.oauth2 import service_account
+from google.cloud import aiplatform
+from google.oauth2 import service_account
 
-import base64
-import vertexai
-from vertexai.generative_models import GenerativeModel, Part, SafetySetting
 
 # Authenticate using secrets in Streamlit Cloud
 def initialize_vertex_client():
