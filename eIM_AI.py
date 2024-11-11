@@ -26,12 +26,12 @@ def initialize_vertex_client():
         "client_x509_cert_url": st.secrets["GOOGLE_CLIENT_X509_CERT_URL"],
     })
     aiplatform.init(credentials=credentials, project=st.secrets["GOOGLE_PROJECT_ID"])
-    # Define your endpoint name and model ID
-    endpoint_name = "projects/1067800176405/locations/us-central1/endpoints/7477014419923271680"
-    model_id = "gemma-1_1-2b-it-1731279494640"
+
 
 initialize_vertex_client()
-
+    # Define your endpoint name and model ID
+endpoint_name = "projects/1067800176405/locations/us-central1/endpoints/7477014419923271680"
+model_id = "gemma-1_1-2b-it-1731279494640"
 # Set up Streamlit app UI
 st.title("Gemini Pro Prompt with Streamlit")
 user_input = st.text_input("Enter text for Gemini Prompt:")
