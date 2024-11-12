@@ -111,7 +111,7 @@ safety_settings = [
 
 initialize_vertex_client()
 
-en button is clicked
+#if button is clicked
 if st.button("Generate Response"):
     if user_input:
         result = generate()
