@@ -35,10 +35,11 @@ def generate(promt_text):
         safety_settings=safety_settings,
         stream=True,
     )
+
     resp_text = ""
 
     for response in responses:
-        resp_text = resp_text + response.text
+        resp_text = resp_text + "\n" + response.text
         
     return resp_text
 
@@ -75,12 +76,14 @@ safety_settings = [
 st.title("eIM and More")
 st.write('')
 st.write('This is a trial version of Google Gemini AI.')
-new_data = st.text_area("Enter a synopsis or ask me any question about eIM. Although my training is limited, I am the proof of concept that AI can assist.", height=200, value="I was walking and someone punched me for no reason. I had minor injuries. I reported the incident to police.")
+new_data = st.text_area("""Enter a synopsis or ask me any question about eIM and I will guide you through the naming process. Although my training is limited, I am the proof of concept that AI can assist.
+You don't need to erase the text. Just keep adding the details required."""
+                        , height=200, value="Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect.")
 
 #if button is clicked
 if st.button("Generate Response"):
     result = generate(new_data)
-    st.markdown(result)
+    st.write(result)
 
 
 # In[ ]:
