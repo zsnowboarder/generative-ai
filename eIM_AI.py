@@ -13,11 +13,11 @@ import base64
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part, SafetySetting
 
+credentials_info = st.secrets["gsc_connections"]
+credentials = service_account.Credentials.from_service_account_info(credentials_info)
 # Authenticate using secrets in Streamlit Cloud
 def initialize_vertex_client():
     # Build the credentials from Streamlit secrets
-    credentials_info = st.secrets["gsc_connections"]
-    credentials = service_account.Credentials.from_service_account_info(credentials_info)
     
     aiplatform.init(project="eim-conventions", location="us-central1", credentials=credentials)
 
