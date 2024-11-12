@@ -30,64 +30,21 @@ def generate():
         system_instruction=[textsi_1]
     )
     responses = model.generate_content(
-        [text1],
+        [new_data],
         generation_config=generation_config,
         safety_settings=safety_settings,
         stream=True,
     )
 
-    temp = ""
+    curr_text = ""
 
     for response in responses:
-        print(response.text, end="")
-        temp += response.text 
+        new_text = curr_text + response.text
+        
+    return rew_text
 
-    return temp
-
-text1 = """police negotiated with the suspect and took the suspect in custody. suspect is Bart Simpson. members have concluded the report."""
-textsi_1 = """Your task is to assist users with naming conventions or eIM based on the rules provided below. Please adhere to these conventions strictly. If details are missing, create the conventions with placeholders and ask for more details. If any details are missing, create placeholders and ask the user for the required information to complete the naming convention. Do not ask for any details that are not part of the naming convention. Here are some convention rules. All naming conventions must be in upper case and followed exact format shown. Do not add underscores beyond what is specified.
-The following are mandatory for an RTCC or in custody:
-OPS_RTCC SYNOPSIS_FILE# (Generate this when RTCC is mentioned.)
-OPS_RTCC NARRATIVE_FILE# (Generate this when RTCC is mentioned.)
-OPS_ACCUSED TEMPLATE_SURNAME, GIVEN1 (create each for each accused, suspect, charged, or any negative role.)
-OPS_ATTACHMENT LIST_FILE# (Create this convention if the text mentions about attachments.)
-NOTES_WILL SAY_SURNAME, GIVEN1 (create one for each police officer or PC. This is a police will say. Replace the SURNAME and GIVEN1 with the officer\'s name.)
-STMT_WILL SAY_SURNAME,GIVEN1 (create one for all individuals involved except the accused and police officer)
-OPS_BAIL COMMENTS_SURNAME, GIVEN1 (create one for each accused, suspect, or any accusatory role.)
-BIO_CPIC-CR1_SURNAME, GIVEN1_YYMMDD (create one for each accused, suspect, or any accusatory role. YYMMDD is the DOB of the subject.)
-The following are all the naming conventions depending on the content of the document:
-OPS_BOLF_TOPIC (When the text mentions something about or it is a narrative documenting the dissemination, upload, or posting of a BOLF. Replace TOPIC with the actual topic of the document.)
-OPS_BREACH CSO_SURNAME, GIVEN1 (create one for each person breaching the CSO order)
-OPS_CONCLUDING REMARKS_FILE# (create one when the text appears to be to conclude the file.)
-OPS_FU_SUBJECT OF REQ (create one when the text mentions of is about investigative follow up actions like clarifying statements, new statements, exhibits, etc. Replace SUBJECT OF REQ to the actual request.)
-OPS_SBOR_MEMBER SURNAME, GIVEN1 (create one for each police member using force on any individual. Replace MEMBER SURNAME, GIVEN1 with the actual name.)
-OPS_S28 MHA TEMPLATE_SURNAME, GIVEN1 (create one for each individual apprehended on a Section 28 apprehension.)
-ADMIN_COURT DATE_[SURNAME], [GIVEN1] (The individal has a court date.) 
-ADMIN_CROWN NO CHG_YYYY-MM-DD (The CCQ date. This is a text indicating Crown does not want to lay charges or a no charge. This convention is not required when there are charges.)
-ADMIN_CROWN REQ_YYYY-MM-DD (The CCQ date. This is A narrative explaining a specific Crown request.)
-ADMIN_CROWN RTN_YYYY-MM-DD (The CCQ date. A narrative explaining the return of a file by Crown Counsel.)
-ADMIN_CROWN_TOPIC (TOPIC should be replaced by a suitable subject based on the content.This is a narrative providing an update from Crown.)
-ADMIN_NCO_APPROVAL_FILE#. (This document describes that an NCO or the supervisor has approved the file.)
-ADMIN_NCO_APPROVAL_BOP FILE#. (This document describes that an NCE or the supervisor has approved a specific breach of peach file.)
-CANVASS_NEIGHBOURHOOD_[LOCATION] (LOCATION is the address, neighbourhood or the name of the business. Create one for each location canvassed. Complete a broad canvass around a neighbourhood for witnesses, castoff, exhibits, or CCTV, etc around a LOCATION or BUSINESS. Canvass includes door-knocks, handing out flyers, and posting notices.) 
-CANVASS_BUILDING_[LOCATION] (LOCATION is the address or an apartment building or the name of the apartment building. If not clear, clarify if it is a neighbourhood canvassed or a building canvassed.)
-SPECIALIZED_NEGOTIATORS_SURNAME, GIVEN1 (create one for each person being negotiated. Surname and Given1 is not the negotiator name). Evidence page for Negotiators.
-ANALYSIS_VIDEO_[LOCATION or BUSINESS] (A page documenting the the review of the results of a CCTV or surveillance video.)
-ARREST_CW_[SURNAME], [GIVEN1] (Charter and Warn of the arrested individual.)
-Indicate briefly beside each generated naming convention when it should be used.
-If the text has more than 8 sentences, generate an additional summary at the end and indicate that it is a summary.
-If you have follow up questions, please add a line to separate the questions so that it is easy to read.
-Finally, if the text has enough details, classify it accurately to the following offence as a title of your response. It is possible sometimes there are multiple offences. Do not classify if the text does not suggest a crime has taken place. Make the title uppercase and put it in the first line:
-Assault
-Assault with the possibility of hate crime
-Assault with a weapon (Any thing except physical force is considered a weapon)
-Theft
-Shoplifting
-Mischief
-Theft from auto (TFA)
-Break and Enter (BNE)
-Robbery
-Fraud"""
+with open("/mount/src/my-qc-app/model_logreg.pkl/instructions.txt", "r") as file:
+    textsi_1 = file.read()
 
 generation_config = {
     "max_output_tokens": 8192,
@@ -116,6 +73,13 @@ safety_settings = [
 
 initialize_vertex_client()
 
+st.title("Incident Classifier")
+st.write('')
+st.write(intro)
+st.write('')
+st.write('This model can classify assaults, thefts, TFA, BNE, and robberies. Offences outside of these categories will be classified with a low probability indicator.')
+new_data = st.text_area("Enter a synopsis. The more text entered, the better the classification.", height=200, value="I was walking and someone punched me for no reason. I had minor injuries. I reported the incident to police.")
+
 #if button is clicked
 if st.button("Generate Response"):
     result = generate()
@@ -123,7 +87,3 @@ if st.button("Generate Response"):
 
 
 # In[ ]:
-
-
-
-
