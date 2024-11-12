@@ -23,14 +23,14 @@ def initialize_vertex_client():
 
 
 
-def generate():
+def generate(promt_text):
     vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
     model = GenerativeModel(
         "gemini-1.5-pro-002",
         system_instruction=[textsi_1]
     )
     responses = model.generate_content(
-        [new_data],
+        [promt_text],
         generation_config=generation_config,
         safety_settings=safety_settings,
         stream=True,
@@ -39,10 +39,9 @@ def generate():
     curr_text = ""
 
     for response in responses:
-        new_text  = curr_text + response.text + "  \n"
+        resp_text = curr_text + response.text
         
-        
-    return new_text
+    return resp_text
 
 with open("/mount/src/generative-ai/instructions.txt", "r") as file:
     textsi_1 = file.read()
@@ -72,7 +71,7 @@ safety_settings = [
     ),
 ]
 
-initialize_vertex_client()
+#initialize_vertex_client()
 
 st.title("eIM and More")
 st.write('')
@@ -81,8 +80,8 @@ new_data = st.text_area("Enter a synopsis or ask me any question about eIM. Alth
 
 #if button is clicked
 if st.button("Generate Response"):
-    result = generate()
-    st.markdown(result)
+    result = generate(new_data)
+    st.write(result)
 
 
 # In[ ]:
