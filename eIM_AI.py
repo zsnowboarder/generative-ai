@@ -75,8 +75,6 @@ initialize_vertex_client()
 
 st.title("Incident Classifier")
 st.write('')
-st.write(intro)
-st.write('')
 st.write('This model can classify assaults, thefts, TFA, BNE, and robberies. Offences outside of these categories will be classified with a low probability indicator.')
 new_data = st.text_area("Enter a synopsis. The more text entered, the better the classification.", height=200, value="I was walking and someone punched me for no reason. I had minor injuries. I reported the incident to police.")
 
