@@ -35,11 +35,10 @@ def generate(promt_text):
         safety_settings=safety_settings,
         stream=True,
     )
-
-   # resp_text = ""
+    resp_text = ""
 
     for response in responses:
-        resp_text = resp_text + response.text
+        resp_text = response.text
         
     return resp_text
 
