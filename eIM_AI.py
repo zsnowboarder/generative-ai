@@ -43,7 +43,7 @@ def generate():
         
     return rew_text
 
-with open("/mount/src/my-qc-app/model_logreg.pkl/instructions.txt", "r") as file:
+with open("/mount/src/eIM/instructions.txt", "r") as file:
     textsi_1 = file.read()
 
 generation_config = {
@@ -83,7 +83,7 @@ new_data = st.text_area("Enter a synopsis. The more text entered, the better the
 #if button is clicked
 if st.button("Generate Response"):
     result = generate()
-    st.markdown(result)
+    st.write(result)
 
 
 # In[ ]:
