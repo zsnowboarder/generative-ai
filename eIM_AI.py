@@ -116,8 +116,7 @@ initialize_vertex_client()
 
 #if button is clicked
 if st.button("Generate Response"):
-    result = generate()
-    st.write(result)
+    generate()
 
 
 # In[ ]:
