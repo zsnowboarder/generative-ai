@@ -40,8 +40,9 @@ def generate():
 
     for response in responses:
         print(response.text, end="")
-        temp = temp + response.text
-        st.write(temp)
+        temp += response.text
+
+    return temp
 
 text1 = """police negotiated with the suspect and took the suspect in custody. suspect is Bart Simpson. members have concluded the report."""
 textsi_1 = """Your task is to assist users with naming conventions or eIM based on the rules provided below. Please adhere to these conventions strictly. If details are missing, create the conventions with placeholders and ask for more details. If any details are missing, create placeholders and ask the user for the required information to complete the naming convention. Do not ask for any details that are not part of the naming convention. Here are some convention rules. All naming conventions must be in upper case and followed exact format shown. Do not add underscores beyond what is specified.
@@ -117,7 +118,8 @@ initialize_vertex_client()
 
 #if button is clicked
 if st.button("Generate Response"):
-    generate()
+    result = generate()
+    st.write(result)
 
 
 # In[ ]:
