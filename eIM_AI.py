@@ -39,7 +39,8 @@ def generate():
     curr_text = ""
 
     for response in responses:
-        new_text  = curr_text + response.text
+        new_text  = curr_text + response.text + "  \n"
+        
         
     return new_text
 
