@@ -40,7 +40,7 @@ def generate():
 
     for response in responses:
         print(response.text, end="")
-        temp += response.text + "\n"
+        temp += response.text 
 
     return temp
 
