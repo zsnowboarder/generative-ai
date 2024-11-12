@@ -36,10 +36,10 @@ def generate(promt_text):
         stream=True,
     )
 
-    resp_text = ""
+   # resp_text = ""
 
     for response in responses:
-        resp_text = resp_text + "\n" + response.text
+        resp_text = resp_text + response.text
         
     return resp_text
 
