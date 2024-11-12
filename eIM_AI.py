@@ -13,19 +13,9 @@ from google.oauth2 import service_account
 # Authenticate using secrets in Streamlit Cloud
 def initialize_vertex_client():
     # Build the credentials from Streamlit secrets
-    credentials = service_account.Credentials.from_service_account_info({
-        "type": "service_account",
-        "project_id": st.secrets["GOOGLE_PROJECT_ID"],
-        "private_key_id": st.secrets["GOOGLE_PRIVATE_KEY_ID"],
-        "private_key": st.secrets["GOOGLE_PRIVATE_KEY"].replace("\\n", "\n"),
-        "client_email": st.secrets["GOOGLE_CLIENT_EMAIL"],
-        "client_id": st.secrets["GOOGLE_CLIENT_ID"],
-        "auth_uri": st.secrets["GOOGLE_AUTH_URI"],
-        "token_uri": st.secrets["GOOGLE_TOKEN_URI"],
-        "auth_provider_x509_cert_url": st.secrets["GOOGLE_AUTH_PROVIDER_X509_CERT_URL"],
-        "client_x509_cert_url": st.secrets["GOOGLE_CLIENT_X509_CERT_URL"],
-    })
-    aiplatform.init(credentials=credentials, project=st.secrets["GOOGLE_PROJECT_ID"])
+    credentials = service_account.Credentials.from_service_account_info(st.secrets["gcs_connections"])
+    
+    aiplatform.init(project="eim-conventions", location="us-central1", credentials=credentials)
 
 
 initialize_vertex_client()
