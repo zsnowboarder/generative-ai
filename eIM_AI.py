@@ -41,7 +41,7 @@ def generate():
     for response in responses:
         new_text = curr_text + response.text
         
-    return rew_text
+    return new_text
 
 with open("/mount/src/generative-ai/instructions.txt", "r") as file:
     textsi_1 = file.read()
@@ -73,10 +73,10 @@ safety_settings = [
 
 initialize_vertex_client()
 
-st.title("Incident Classifier")
+st.title("eIM and More")
 st.write('')
-st.write('This model can classify assaults, thefts, TFA, BNE, and robberies. Offences outside of these categories will be classified with a low probability indicator.')
-new_data = st.text_area("Enter a synopsis. The more text entered, the better the classification.", height=200, value="I was walking and someone punched me for no reason. I had minor injuries. I reported the incident to police.")
+st.write('This is a trial version of Google Gemini AI.')
+new_data = st.text_area("Enter a synopsis or ask me any question about eIM. Although my training is limited, I am the proof of concept that AI can assist.", height=200, value="I was walking and someone punched me for no reason. I had minor injuries. I reported the incident to police.")
 
 #if button is clicked
 if st.button("Generate Response"):
