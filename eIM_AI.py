@@ -81,7 +81,7 @@ new_data = st.text_area("Enter a synopsis or ask me any question about eIM. Alth
 #if button is clicked
 if st.button("Generate Response"):
     result = generate(new_data)
-    st.write(result)
+    st.markdown(result)
 
 
 # In[ ]:
