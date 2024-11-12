@@ -36,7 +36,7 @@ def generate(promt_text):
         stream=True,
     )
 
-    resp_text = ""
+    resp_text = "AAA"
 
     for response in responses:
         resp_text = resp_text + response.text + "\n"
