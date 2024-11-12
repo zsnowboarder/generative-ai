@@ -24,7 +24,7 @@ def initialize_vertex_client():
 
 
 def generate():
-    vertexai.init(project="eim-convention", location="northamerica-northeast1")
+    vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
     model = GenerativeModel(
         "gemini-1.5-pro-002",
         system_instruction=[textsi_1]
