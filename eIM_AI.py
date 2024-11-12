@@ -115,6 +115,7 @@ initialize_vertex_client()
 
 #if button is clicked
 if st.button("Generate Response"):
+    temp = ""
     generate()
 
 
