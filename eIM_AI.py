@@ -13,7 +13,7 @@ from google.oauth2 import service_account
 # Authenticate using secrets in Streamlit Cloud
 def initialize_vertex_client():
     # Build the credentials from Streamlit secrets
-    credentials = service_account.Credentials.from_service_account_info(st.secrets[gcs_connections])
+    credentials = service_account.Credentials.from_service_account_info(**st.secrets.gsc_connections)
     
     aiplatform.init(project="eim-conventions", location="us-central1", credentials=credentials)
 
