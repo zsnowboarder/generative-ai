@@ -39,7 +39,7 @@ def generate(promt_text):
     curr_text = ""
 
     for response in responses:
-        resp_text = curr_text + response.text
+        resp_text = curr_text + response.text + "\n"
         st.write(resp_text)
         
     return resp_text
