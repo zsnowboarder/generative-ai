@@ -19,7 +19,7 @@ credentials = service_account.Credentials.from_service_account_info(credentials_
 def initialize_vertex_client():
     # Build the credentials from Streamlit secrets
     
-    aiplatform.init(project="eim-conventions", location="us-central1", credentials=credentials)
+    aiplatform.init(project="eim-conventions", location="northamerica-northeast1", credentials=credentials)
 
 
 
@@ -71,7 +71,7 @@ safety_settings = [
     ),
 ]
 
-initialize_vertex_client()
+#initialize_vertex_client()
 
 st.title("eIM and More")
 st.write('')
