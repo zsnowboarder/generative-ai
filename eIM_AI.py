@@ -39,7 +39,7 @@ def generate(promt_text):
     resp_text = ""
 
     for response in responses:
-        resp_text = resp_text + response.text
+        resp_text = resp_text + "\n" + response.text
         
     return resp_text
 
@@ -81,7 +81,7 @@ new_data = st.text_area("Enter a synopsis or ask me any question about eIM. Alth
 #if button is clicked
 if st.button("Generate Response"):
     result = generate(new_data)
-    st.markdown(result)
+    st.write(result)
 
 
 # In[ ]:
