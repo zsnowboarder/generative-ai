@@ -71,7 +71,7 @@ safety_settings = [
     ),
 ]
 
-#initialize_vertex_client()
+initialize_vertex_client()
 
 st.title("eIM and More")
 st.write('')
