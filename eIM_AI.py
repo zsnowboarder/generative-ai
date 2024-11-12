@@ -43,7 +43,7 @@ def generate():
         
     return rew_text
 
-with open("/mount/src/eIM/instructions.txt", "r") as file:
+with open("/mount/src/generative-ai/instructions.txt", "r") as file:
     textsi_1 = file.read()
 
 generation_config = {
