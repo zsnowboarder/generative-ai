@@ -38,8 +38,7 @@ def generate():
 
     for response in responses:
         print(response.text, end="")
-        temp = response.text
-        new_temp = temp 
+        temp = temp + response.text
         st.write(new_temp)
 
 text1 = """police negotiated with the suspect and took the suspect in custody. suspect is Bart Simpson. members have concluded the report."""
