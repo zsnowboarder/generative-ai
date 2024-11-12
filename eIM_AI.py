@@ -38,7 +38,7 @@ def generate(promt_text):
     resp_text = ""
 
     for response in responses:
-        resp_text = response.text
+        resp_text = resp_text + response.text
         
     return resp_text
 
