@@ -36,6 +36,8 @@ def generate():
         stream=True,
     )
 
+    temp = ""
+
     for response in responses:
         print(response.text, end="")
         temp = temp + response.text
@@ -115,7 +117,6 @@ initialize_vertex_client()
 
 #if button is clicked
 if st.button("Generate Response"):
-    temp = ""
     generate()
 
 
