@@ -113,11 +113,8 @@ initialize_vertex_client()
 
 #if button is clicked
 if st.button("Generate Response"):
-    if user_input:
-        result = generate()
-        st.write(result)
-    else:
-        st.warning("Please enter text.")
+    result = generate()
+    st.write(result)
 
 
 # In[ ]:
