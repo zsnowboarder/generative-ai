@@ -83,6 +83,7 @@ You don't need to erase the text if I ask you follow up questions. Just keep add
 
 #if button is clicked
 if st.button("Generate Response"):
+    st.write("Please patient as it may take me a few seconds...")
     result = generate(new_data)
     st.text_area("Response", result, height=800)
 
