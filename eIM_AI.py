@@ -39,7 +39,7 @@ def generate(promt_text):
     resp_text = ""
 
     for response in responses:
-        resp_text = resp_text + "\n" + response.text
+        resp_text = resp_text + response.text
         
     return resp_text
 
@@ -83,7 +83,7 @@ You don't need to erase the text. Just keep adding the details required."""
 #if button is clicked
 if st.button("Generate Response"):
     result = generate(new_data)
-    st.text(result)
+    st.text_area("Response", result, height=800)
 
 
 # In[ ]:
