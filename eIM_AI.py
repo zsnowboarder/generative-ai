@@ -73,17 +73,17 @@ safety_settings = [
 
 #initialize_vertex_client()
 
-st.title("eIM and More")
+st.title("eIM + Offence Classifier + Summarizer")
 st.write('')
 st.write('This is a trial version of Google Gemini AI.')
-new_data = st.text_area("""Enter a synopsis or ask me any question about eIM and I will guide you through the naming process. Although my training is limited, I am the proof of concept that AI can assist.
+new_data = st.text_area("""Enter a synopsis or ask me any question about eIM and I will guide you through the naming process. Although my training is limited, I am the proof of concept that AI can assist multiple tasks at once.
 You don't need to erase the text. Just keep adding the details required."""
                         , height=200, value="Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect.")
 
 #if button is clicked
 if st.button("Generate Response"):
     result = generate(new_data)
-    st.write(result)
+    st.text(result)
 
 
 # In[ ]:
