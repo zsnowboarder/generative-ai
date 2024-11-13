@@ -81,10 +81,13 @@ You can ask me specifically on what naming conventions I was trained on and what
 You don't need to erase the text if I ask you follow up questions. Just keep adding the details required."""
                         , height=200, value="Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect.")
 
+
 #if button is clicked
 if st.button("Generate Response"):
-    st.write("Please patient as it may take me a few seconds...")
+    placeholder = st.empty()
+    placeholder.write("Please patient as it may take me a few seconds...")
     result = generate(new_data)
+    placeholder.empty()
     st.text_area("Response", result, height=800)
 
 
