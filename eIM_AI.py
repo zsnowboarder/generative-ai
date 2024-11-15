@@ -76,7 +76,7 @@ intro = generate("""Re-write this a different way while keeping all the instruct
 Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
 You can ask me specifically on what naming conventions I was trained on and what else I can do.""")
 
-random_report = generate("Generate a random police report.")
+random_report = "Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect."
 
 # this is the main instruction
 with open("/mount/src/generative-ai/instructions.txt", "r") as file:
