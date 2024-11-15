@@ -21,7 +21,8 @@ def initialize_vertex_client():
     
     aiplatform.init(project="eim-conventions", location="northamerica-northeast1", credentials=credentials)
 
-    
+
+
 def generate(promt_text):
     vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
     model = GenerativeModel(
@@ -67,14 +68,16 @@ safety_settings = [
     ),
 ]
 
-# this is the main instruction
+# open this instructions to generate an intro and a random police report
 with open("/mount/src/generative-ai/instructions_misc.txt", "r") as file:
     textsi_1 = file.read()
-    intro = generate("""Re-write this a different way while keeping all the instructions clear: Enter a synopsis or ask me any question about eIM and I will guide you through the naming process. 
-    Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
-    You can ask me specifically on what naming conventions I was trained on and what else I can do.""")
-    random_report = generate("Generate a random police report.")
-    
+
+intro = generate("""Re-write this a different way while keeping all the instructions clear: Enter a synopsis or ask me any question about eIM and I will guide you through the naming process. 
+Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
+You can ask me specifically on what naming conventions I was trained on and what else I can do.""")
+
+random_report = generate("Generate a random police report.")
+
 # this is the main instruction
 with open("/mount/src/generative-ai/instructions.txt", "r") as file:
     textsi_1 = file.read()
