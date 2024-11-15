@@ -21,7 +21,33 @@ def initialize_vertex_client():
     
     aiplatform.init(project="eim-conventions", location="northamerica-northeast1", credentials=credentials)
 
+def generate_misc(): 
+        # open this instructions to generate an intro and a random police report
+    with open("/mount/src/generative-ai/instructions_misc.txt", "r") as file:
+        textsi_0 = file.read()
+    
+    intro = generate("""Re-write this a different way while keeping all the instructions clear: Enter a synopsis or ask me any question about eIM and I will guide you through the naming process. 
+    Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
+    You can ask me specifically on what naming conventions I was trained on and what else I can do.""")
+    
+    random_report = generate("Generate a random police report.")
+    vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
+    model = GenerativeModel(
+        "gemini-1.5-pro-002",
+        system_instruction=[textsi_0]
+    )
+    responses = model.generate_content(
+        [prompt_text],
+        generation_config=generation_config,
+        safety_settings=safety_settings,
+        stream=True,
+    )
 
+    resp_text = ""
+
+    for response in responses:
+        resp_text = resp_text + response.text
+    
 
 def generate(promt_text):
     vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
@@ -68,15 +94,7 @@ safety_settings = [
     ),
 ]
 
-# open this instructions to generate an intro and a random police report
-with open("/mount/src/generative-ai/instructions_misc.txt", "r") as file:
-    textsi_1 = file.read()
-
-intro = generate("""Re-write this a different way while keeping all the instructions clear: Enter a synopsis or ask me any question about eIM and I will guide you through the naming process. 
-Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
-You can ask me specifically on what naming conventions I was trained on and what else I can do.""")
-
-random_report = generate("Generate a random police report.")
+generate_misc()
 
 # this is the main instruction
 with open("/mount/src/generative-ai/instructions.txt", "r") as file:
