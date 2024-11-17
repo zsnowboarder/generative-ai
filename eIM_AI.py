@@ -88,6 +88,7 @@ if st.button("Generate Response"):
     placeholder.write("Please patient as it may take me a few seconds...")
     result = generate(new_data)
     placeholder.empty()
+    st.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages based on the information extracted from the officer's narrative.")
     st.text_area("Response", result, height=800)
 
 
