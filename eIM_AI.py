@@ -94,7 +94,7 @@ if st.button("Generate Response"):
 # Create a download button
 st.download_button(
     label="Send to Transcription",
-    data=result,
+    data="abc",
     file_name="GO.xml",
     mime="text/plain")
     
