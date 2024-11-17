@@ -69,7 +69,7 @@ safety_settings = [
 ]
 
 def download_xml_button():
-    xml_text = "abdkfjaldjfak"
+    xml_text = "When this function is available, members will no longer need to add entities or text pages manually. A narrative is all members have to write."
     # Create a download button
     st.download_button(
     label="Send to Transcription",
