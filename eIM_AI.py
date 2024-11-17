@@ -91,5 +91,11 @@ if st.button("Generate Response"):
     placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages based on the information extracted from the officer's narrative. The possibility are endless.")
     st.text_area("Response", result, height=800)
 
-
+# Create a download button
+st.download_button(
+    label="Send to Transcription",
+    data=result,
+    file_name="GO.xml",
+    mime="text/plain")
+    
 # In[ ]:
