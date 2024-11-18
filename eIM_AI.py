@@ -100,7 +100,7 @@ You can ask me specifically on what naming conventions I was trained on and what
 if st.button("Generate Response"):
     placeholder = st.empty()
     placeholder.write("Please patient as it may take me a few seconds as this is a trial version........")
-    result = generate(instructions, prompt)
+    result = generate(instructions, new_data)
     placeholder.empty()
     placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages based on the information extracted from the officer's narrative. The possibility are endless.")
     st.text_area("Response", result, height=800)
