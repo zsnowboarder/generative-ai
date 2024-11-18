@@ -74,7 +74,7 @@ def download_xml_button():
     st.download_button(
     label="Send to Transcription",
     data=xml_text,
-    file_name="GO.xml",
+    file_name="GO.txt",
     mime="text/plain")
     
 #random_report = "Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect."
