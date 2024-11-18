@@ -41,6 +41,10 @@ Role code:
 11 = Suspect
 14 = Witness or Victim
 
+Gender code:
+M = Male
+F = Female
+
 XML Schema:
 <?xml version='1.0'?>
 
