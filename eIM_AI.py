@@ -23,14 +23,14 @@ def initialize_vertex_client():
 
 
 
-def generate(promt_text):
+def generate(inst_text, prompt_text):
     vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
     model = GenerativeModel(
         "gemini-1.5-pro-002",
-        system_instruction=[textsi_1]
+        system_instruction=[inst_text]
     )
     responses = model.generate_content(
-        [promt_text],
+        [prompt_text],
         generation_config=generation_config,
         safety_settings=safety_settings,
         stream=True,
@@ -45,7 +45,7 @@ def generate(promt_text):
 
 generation_config = {
     "max_output_tokens": 8192,
-    "temperature": 1,
+    "temperature": 0,
     "top_p": 0.95,
 }
 
@@ -81,7 +81,11 @@ def download_xml_button():
 
 # this is the main instruction
 with open("/mount/src/generative-ai/instructions.txt", "r") as file:
-    textsi_1 = file.read()
+    instructions = file.read()
+
+# this is the xml instruction
+with open("/mount/src/generative-ai/instructions_xml.txt", "r") as file:
+    instructions_xml = file.read()
 
 st.image("https://i1.wp.com/bcsilveralert.ca/wp-content/uploads/2014/09/Vancouver-Police.png?w=200")
 st.title("eIM + Offence Classifier + Summarizer")
@@ -96,7 +100,7 @@ You can ask me specifically on what naming conventions I was trained on and what
 if st.button("Generate Response"):
     placeholder = st.empty()
     placeholder.write("Please patient as it may take me a few seconds as this is a trial version........")
-    result = generate(new_data)
+    result = generate(instructions, prompt)
     placeholder.empty()
     placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages based on the information extracted from the officer's narrative. The possibility are endless.")
     st.text_area("Response", result, height=800)
