@@ -98,7 +98,7 @@ You can ask me specifically on what naming conventions I was trained on and what
                         , height=200, value="file number: 2024-19293. Victim Jane DOE (1991/02/03) was walking and suspect Bart SIMPSON (1990/01/01) assaulted victim. Witness John BROWN (1989/02/03) called police. PC VA9000 Mary SIM arrived and arrested Bart. Witness provided a statement to police. Suspect was released with conditions of no contact Jane DOE. PC VA9100 Bart BARROW assisted with canvassing in the Collingwood area and found no CCTV.")
 
 #if button is clicked
-if st.button("Generate Response", help="Generate eIM based on the input text.):
+if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder = st.empty()
     placeholder.write("Please be patient as it may take me a few seconds to generate a response with this trial version........")
     result = generate(instructions, new_data)
