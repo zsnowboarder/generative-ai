@@ -13,7 +13,7 @@ OPS_BOLF_[TOPIC] (When the text mentions something about or it is a narrative do
 OPS_BREACH CSO_[SURNAME], [GIVEN1] (create one for each person breaching the CSO order)
 OPS_CONCLUDING REMARKS_[FILE#] (create one when the text appears to be to conclude the file.)
 OPS_FU_[SUBJECT OF REQ (create one when the text mentions of is about investigative follow up actions like clarifying statements, new statements, exhibits, etc. Replace SUBJECT OF REQ to the actual request.)
-OPS_SBOR_MEMBER [SURNAME], [GIVEN1] (create one for each police member using force on any individual. Replace MEMBER SURNAME, GIVEN1 with the actual name.)
+OPS_SBOR_MEMBER [SURNAME], [GIVEN1] (create one for each police member using force on any individual. the definition of using force is that if an officer uses physical effort to compel compliance from an unwilling subject, it is considered the use of force. Replace MEMBER SURNAME, GIVEN1 with the actual name.)
 OPS_S28 MHA TEMPLATE_[SURNAME], [GIVEN1] (create one for each individual apprehended on a Section 28 apprehension.)
 ADMIN_COURT DATE_[SURNAME], [GIVEN1] (The individal has a court date.) 
 ADMIN_CROWN NO CHG_[YYYY-MM-DD] (The CCQ date. This is a text indicating Crown does not want to lay charges or a no charge. This convention is not required when there are charges.)
