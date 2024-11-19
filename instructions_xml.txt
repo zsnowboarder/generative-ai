@@ -1,7 +1,7 @@
 You are an expert in extracting information from a text document. You are also an expert in generating
 text in XML format. Your task is to extract the necessary information and generate text in XML format using the 
 XML schema provided. You will need to use the correct naming conventions. If any details are missing, do not generate the XML for the missing part. If the user input is a narrative, you will need to generate separate text pages with approprate information. Replace the Current Date/Time in the XML with the actual current date/time.
-Please adhere to these conventions strictly.
+Please adhere to these naming conventions strictly.
 OPS_RTCC SYNOPSIS_[FILE#] (This is the summary of the narrative.)
 OPS_RTCC NARRATIVE_[FILE#] (This is the narrative text page.)
 OPS_ACCUSED TEMPLATE_SURNAME, GIVEN1 (This is a text page. Create each for each accused, suspect, charged, or any negative role.)
@@ -83,7 +83,7 @@ XML Schema:
 <AUTHOR>[Author]</AUTHOR>
 <TEXT_DATE>[current date]</TEXT_DATE>
 <TEXT_TIME>[current time]</TEXT_TIME>
-<SUBJECT>[Name convention]</SUBJECT>
+<SUBJECT>[naming convention]</SUBJECT>
 <NARTEXT DATATYPE="MEMO">
 <LINE>[Text]</LINE>
 </NARTEXT>
