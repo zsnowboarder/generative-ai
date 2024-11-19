@@ -72,8 +72,8 @@ def download_xml_button():
     xml_text = "When this function is available, members will no longer need to add entities or text pages manually. A narrative is all members have to write."
     # Create a download button
     st.download_button(
-    label="Generate Report",
-    help="Generate a report with entities/text pages and send it to CPIC transcription.",
+    label="Generate Report  ",
+    help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
     data=xml_text,
     file_name="GO.txt",
     mime="text/plain")
@@ -103,7 +103,7 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder.write("Please be patient as it may take me a few seconds to generate a response with this trial version........")
     result = generate(instructions, new_data)
     placeholder.empty()
-    placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages based on the information extracted from the officer's narrative. The possibilities are endless.")
+    placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The possibilities are endless.")
     st.text_area("Response", result, height=800)
 
 download_xml_button()
