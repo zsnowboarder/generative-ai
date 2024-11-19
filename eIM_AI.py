@@ -8,10 +8,19 @@
 import streamlit as st
 from google.cloud import aiplatform
 from google.oauth2 import service_account
+import datetime
 
 import base64
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part, SafetySetting
+
+# get current date and time
+
+today = datetime.date.today()
+curr_date = today.strftime("%Y-%m-%d")
+now = datetime.datetime.now()
+curr_time = now.strftime("%H%M")
+curr_time
 
 # get the credentials from streamlit secrets
 credentials_info = st.secrets["gsc_connections"]
