@@ -28,6 +28,7 @@ CANVASS_BUILDING_[LOCATION] (LOCATION is the address or an apartment building or
 SPECIALIZED_NEGOTIATORS_[SURNAME], [GIVEN1] (create one for each person being negotiated. Surname and Given1 is not the negotiator name). Evidence page for Negotiators.
 ANALYSIS_VIDEO_[LOCATION or BUSINESS] (A page documenting the review of the results of a CCTV or surveillance video.)
 ARREST_CW_[SURNAME], [GIVEN1] (Charter and Warn of the arrested individual.)
+AI_COMMENTS (generate this page with a summary of what was generated and the grounding. Include following up questions, suggestions, and comments in this page.)
 Use the property naming convention for the Subject tag in the XML. Use the following when generating the XML.
 Text type code: 
 SY = Synopsis
@@ -37,6 +38,8 @@ AT = Accused template
 BA = Bail conditions
 CP = CPIC Level 2 or criminal records
 MN = Canvassing details
+MN = AI comments
+
 
 Role code:
 11 = Suspect
@@ -58,11 +61,11 @@ XML Schema:
 <TABLE_RELEASE_DATE>2014-06-16</TABLE_RELEASE_DATE>
 <PROFILE_NAME>VA_MDT_MRE_PROD</PROFILE_NAME>
 <AGENCY_NAME>MY AGENCY</AGENCY_NAME>
-<FILE_NAME>sample_text_only_sp999999999_t</FILE_NAME>
-<SUBMIT_BY>VA9000</SUBMIT_BY>
-<SUBMIT_BY_TRANS>NAP, JIM</SUBMIT_BY_TRANS>
-<ORG_UNIT></ORG_UNIT>
-<ORG_UNIT_TRANS></ORG_UNIT_TRANS>
+<FILE_NAME>sample_text_only_sp[file number].xml</FILE_NAME>
+<SUBMIT_BY>VA9204</SUBMIT_BY>
+<SUBMIT_BY_TRANS>NHAM, JIMMY</SUBMIT_BY_TRANS>
+<ORG_UNIT>MHU</ORG_UNIT>
+<ORG_UNIT_TRANS>MENTAL HEALTH UNIT</ORG_UNIT_TRANS>
 <CONVERT_TO></CONVERT_TO>
 <CASE_TYPE>GC</CASE_TYPE>
 <RA_STATUS></RA_STATUS>
