@@ -33,6 +33,7 @@ Text type code:
 SY = Synopsis
 OR = Narrative
 CW = Witness statement
+AT = Accused template
 BA = Bail conditions
 CP = CPIC Level 2 or criminal records
 MN = Canvassing details
