@@ -25,10 +25,6 @@ curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
 
 
-def initialize_vertex_client():
-    
-    aiplatform.init(project="eim-conventions", location="northamerica-northeast1", credentials=credentials)
-
 def generate_xml():
     xml_text = generate(instructions_xml, new_data)
     
@@ -47,34 +43,6 @@ def generate(inst_text, prompt_text):
 
     return resp_text
 
-generation_config = {
-    "max_output_tokens": 8192,
-    "temperature": 0,
-    "top_p": 0.95,
-}
-
-safety_settings = [
-    SafetySetting(
-        category=SafetySetting.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-        threshold=SafetySetting.HarmBlockThreshold.OFF
-    ),
-    SafetySetting(
-        category=SafetySetting.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-        threshold=SafetySetting.HarmBlockThreshold.OFF
-    ),
-    SafetySetting(
-        category=SafetySetting.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-        threshold=SafetySetting.HarmBlockThreshold.OFF
-    ),
-    SafetySetting(
-        category=SafetySetting.HarmCategory.HARM_CATEGORY_HARASSMENT,
-        threshold=SafetySetting.HarmBlockThreshold.OFF
-    ),
-]
-
-
-
-    
 #random_report = "Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect."
 
 # this is the main instruction
