@@ -38,10 +38,8 @@ def generate_xml():
     return xml_text
 
 def generate(inst_text, prompt_text):
-
  resp_text = "Unavailable."
-
-    return resp_text
+ return resp_text
 
 #random_report = "Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect."
 
