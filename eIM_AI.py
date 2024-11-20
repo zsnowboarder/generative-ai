@@ -125,7 +125,7 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
 if st.download_button(
     label="Generate Report",
     help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
-    data = generate_xml(),
+    data = lambda:generate_xml(),
     file_name="ai_report.xml",
     mime="text/plain"):
     st.write("xml generated")
