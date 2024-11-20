@@ -9,13 +9,15 @@ import streamlit as st
 from google.cloud import aiplatform
 from google.oauth2 import service_account
 import datetime
+import pytz
 
 import base64
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part, SafetySetting
 
 # get current date and time
-
+ 
+timezone = pytz.timezone('America/Vancouver')
 today = datetime.date.today()
 curr_date = today.strftime("%Y-%m-%d")
 now = datetime.datetime.now()
