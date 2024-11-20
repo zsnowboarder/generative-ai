@@ -4,10 +4,10 @@ XML schema provided. You will need to use the correct naming conventions. If any
 Please adhere to these naming conventions strictly.
 OPS_RTCC SYNOPSIS_[FILE#] (This is the summary of the narrative.)
 OPS_RTCC NARRATIVE_[FILE#] (This is the narrative text page.)
-OPS_ACCUSED TEMPLATE_SURNAME, GIVEN1 (This is a text page. Create each for each accused, suspect, charged, or any negative role.)
+OPS_ACCUSED TEMPLATE_SURNAME, GIVEN1 (Create each for each accused, suspect, charged, or any negative role. This text page contains only the name of the accused.)
 OPS_ATTACHMENT LIST_[FILE#] (Create this convention if the text mentions about attachments.)
-NOTES_WILL SAY_[SURNAME], [GIVEN1] (Extract the actions of the police officer and summarize it in this text. Create one for each police officer or PC .Replace the SURNAME and GIVEN1 with the officer's name.)
-STMT_WILL SAY_[SURNAME],[GIVEN1] (Generate this text page and summarize the witness statement or simply indicate that witness provided or did not provide a statement. Create one for all individuals involved except the accused and police officer)
+NOTES_WILL SAY_[SURNAME], [GIVEN1] (Extract the actions of the police officer or what the officer will say in court and summarize it in this text page. Create one for each police officer or PC .Replace the SURNAME and GIVEN1 with the officer's name.)
+STMT_WILL SAY_[SURNAME],[GIVEN1] (Generate this text page for each witness or victim and their statement. If no statement was provided, please indicate in this text page.)
 OPS_BAIL COMMENTS_[SURNAME], [GIVEN1] (Generate this text page and use the details in the narrative. Create one for each accused, suspect, or any accusatory role.)
 BIO_CPIC-CR1_[SURNAME], [GIVEN1]_[YYMMDD] (Generate this text page for a Level 2 or criminal records of each accused, suspect, or any accusatory role. YYMMDD is the DOB of the subject.)
 OPS_BOLF_[TOPIC] (When the text mentions something about or it is a narrative documenting the dissemination, upload, or posting of a BOLF. Replace TOPIC with the actual topic of the document.)
