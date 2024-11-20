@@ -114,23 +114,18 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The possibilities are endless.")
     st.text_area("Response", result, height=800)
 
-    # Create a download button
-if st.download_button(
+xml_text = generate(instructions_xml, new_data)
+xml_text = replace(xml_text,"<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
+xml_text = replace(xml_text, "[current date]", curr_date)
+xml_text = replace(xml_text, "[current time]", curr_time)
+    
+# Create a download button
+st.download_button(
     label="Generate Report",
     help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
-    data = None,
+    data = xml_text,
     file_name="ai_report.xml",
-    mime="text/plain"):
-    xml_text = generate(instructions_xml, new_data)
-    xml_text = replace(xml_text,"<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
-    #xml_text = replace(xml_text, "[current date]", curr_date)
-    #xml_text = replace(xml_text, "[current time]", curr_time)
-    st.download_button(
-        label="Generate Report",
-        help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
-        data = xml_text,
-        file_name="ai_report.xml",
-        mime="text/plain")
+    mime="text/plain")
 
 
 # In[ ]:
