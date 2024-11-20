@@ -20,7 +20,6 @@ today = datetime.date.today()
 curr_date = today.strftime("%Y-%m-%d")
 now = datetime.datetime.now()
 curr_time = now.strftime("%H%M")
-curr_time
 
 # get the credentials from streamlit secrets
 credentials_info = st.secrets["gsc_connections"]
@@ -124,8 +123,8 @@ if st.download_button(
     mime="text/plain"):
     xml_text = generate(instructions_xml, new_data)
     xml_text = replace(xml_text,"<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
-    xml_text = replace(xml_text, "[current date]", curr_date)
-    xml_text = replace(xml_text, "[current time]", curr_time)
+    #xml_text = replace(xml_text, "[current date]", curr_date)
+    #xml_text = replace(xml_text, "[current time]", curr_time)
     st.download_button(
         label="Generate Report",
         help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
