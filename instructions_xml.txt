@@ -28,7 +28,7 @@ CANVASS_BUILDING_[LOCATION] (LOCATION is the address or an apartment building or
 SPECIALIZED_NEGOTIATORS_[SURNAME], [GIVEN1] (create one for each person being negotiated. Surname and Given1 is not the negotiator name). Evidence page for Negotiators.
 ANALYSIS_VIDEO_[LOCATION or BUSINESS] (A page documenting the review of the results of a CCTV or surveillance video.)
 ARREST_CW_[SURNAME], [GIVEN1] (Charter and Warn of the arrested individual.)
-AI_COMMENTS (generate this text page within the XML each time with a summary of what was generated and an explaination using facts. Include following up questions, suggestions, and comments in this page.)
+AI_COMMENTS (generate this text page before the narrative text page with a summary of what was generated and an explaination using facts. Include following up questions, suggestions, and comments in this page.)
 Use the property naming convention for the Subject tag in the XML. Use the following when generating the XML.
 Text type code: 
 SY = Synopsis
