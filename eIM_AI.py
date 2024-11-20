@@ -121,7 +121,11 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     st.text_area("Response", result, height=800)
 
 if st.button("Generate Report", help="Generate report"):
+ placeholder = st.empty()
+ placeholder.write("Please be patient as it may take me a few seconds to generate the report with this trial version........")
  xml_text = generate_xml()
+ placeholder.empty()
+ placeholder.write("Completed. You may download the report and import to MRE for further processing.")
  
  st.download_button(
   label="Download Report",
