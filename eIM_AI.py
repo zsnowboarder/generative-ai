@@ -20,6 +20,7 @@ today = datetime.date.today()
 curr_date = today.strftime("%Y-%m-%d")
 now = datetime.datetime.now()
 curr_time = now.strftime("%H%M")
+curr_time = int(curr_time)
 
 # get the credentials from streamlit secrets
 credentials_info = st.secrets["gsc_connections"]
@@ -48,7 +49,7 @@ def generate(inst_text, prompt_text):
 
     for response in responses:
         resp_text = resp_text + response.text
-        
+
     return resp_text
 
 generation_config = {
@@ -76,15 +77,18 @@ safety_settings = [
     ),
 ]
 
-def download_xml_button():
+def generate_xml():
     xml_text = generate(instructions_xml, new_data)
-    # Create a download button
-    st.download_button(
-    label="Generate Report  ",
-    help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
-    data=xml_text,
-    file_name="GO.txt",
-    mime="text/plain")
+    
+    # replace some variables. this applies to the xml text
+    xml_text = xml_text.replace("<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
+    xml_text = xml_text.replace("@9999/99/99", curr_date)
+    xml_text = xml_text.replace("@9999", curr_time)
+    xml_text = xml_text.replace("```xml","")
+    xml_text = xml_text.replace("```", "")
+    
+    return xml_text
+
     
 #random_report = "Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect."
 
@@ -114,18 +118,12 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The possibilities are endless.")
     st.text_area("Response", result, height=800)
 
-xml_text = generate(instructions_xml, new_data)
-xml_text = xml_text.replace("<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
-xml_text = xml_text.replace("[current date]", curr_date)
-xml_text = xml_text.replace("[current time]", curr_time)
-xml_text = xml_text.replace("```xml","")
-xml_text = xml_text.replace("```", "")
     
 # Create a download button
 st.download_button(
     label="Generate Report",
     help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
-    data = xml_text,
+    data = generate_xml(),
     file_name="ai_report.xml",
     mime="text/plain")
 
