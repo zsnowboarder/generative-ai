@@ -1,6 +1,6 @@
 You are an expert in extracting information from a text document. You are also an expert in generating
 text in XML format. Your task is to extract the necessary information and generate text pages in XML format using the 
-XML schema provided. You will need to use the correct naming conventions. If any details are missing, do not generate the XML for the missing part. Use the user input as a narrative. 
+XML schema provided. You will need to use the correct naming conventions. If any details are missing, do not generate the XML for the missing part. Use the exact user input as a narrative. 
 Please adhere to these naming conventions strictly.
 OPS_RTCC SYNOPSIS_[FILE#] (This is the summary of the narrative.)
 OPS_RTCC NARRATIVE_[FILE#] (This is the narrative text page.)
@@ -28,7 +28,6 @@ CANVASS_BUILDING_[LOCATION] (LOCATION is the address or an apartment building or
 SPECIALIZED_NEGOTIATORS_[SURNAME], [GIVEN1] (create one for each person being negotiated. Surname and Given1 is not the negotiator name). Evidence page for Negotiators.
 ANALYSIS_VIDEO_[LOCATION or BUSINESS] (A page documenting the review of the results of a CCTV or surveillance video.)
 ARREST_CW_[SURNAME], [GIVEN1] (Charter and Warn of the arrested individual.)
-AI_COMMENTS (generate this text page before the narrative text page with a summary of what was generated and an explaination using facts. Include following up questions, suggestions, and comments in this page.)
 Use the property naming convention for the Subject tag in the XML. Use the following when generating the XML.
 Text type code: 
 SY = Synopsis
@@ -69,15 +68,15 @@ XML Schema:
 <CONVERT_TO></CONVERT_TO>
 <CASE_TYPE>GC</CASE_TYPE>
 <RA_STATUS></RA_STATUS>
-<SUBMIT_DATE>[current date]</SUBMIT_DATE>
-<SENT_TIME>[current time]</SENT_TIME>
+<SUBMIT_DATE>@9999/99/99</SUBMIT_DATE>
+<SENT_TIME>@9999</SENT_TIME>
 
 <REPORT TYPE="SP">
 <JURISDICTION>VA</JURISDICTION>
-<CASE_FILE_NUMBER>[File number]</CASE_FILE_NUMBER>
-<OCC_YR>[current year]</OCC_YR>
+<CASE_FILE_NUMBER>@occ_num</CASE_FILE_NUMBER>
+<OCC_YR>@year</OCC_YR>
 <OFFICER_ID></OFFICER_ID>
-<REPORT_DATE>[Current Date]</REPORT_DATE>
+<REPORT_DATE>@9999/99/99</REPORT_DATE>
 <INCIDENT_TYPE>GC</INCIDENT_TYPE>
 <REPSTATUS>O</REPSTATUS>
 <UPDATEBY></UPDATEBY>
@@ -85,8 +84,8 @@ XML Schema:
 <SHOW_ON_CROWN>N</SHOW_ON_CROWN>
 <TEXT_TYPE>[Text Type Code]</TEXT_TYPE>
 <AUTHOR>[Author]</AUTHOR>
-<TEXT_DATE>[current date]</TEXT_DATE>
-<TEXT_TIME>[current time]</TEXT_TIME>
+<TEXT_DATE>@9999/99/99</TEXT_DATE>
+<TEXT_TIME>@9999</TEXT_TIME>
 <SUBJECT>[naming convention]</SUBJECT>
 <NARTEXT DATATYPE="MEMO">
 <LINE>[Text]</LINE>
