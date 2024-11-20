@@ -2,3 +2,4 @@ streamlit
 google-cloud-aiplatform
 google-auth
 google-auth-oauthlib
+pytz
