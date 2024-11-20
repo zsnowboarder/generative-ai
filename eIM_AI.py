@@ -118,6 +118,8 @@ xml_text = generate(instructions_xml, new_data)
 xml_text = xml_text.replace("<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
 xml_text = xml_text.replace("[current date]", curr_date)
 xml_text = xml_text.replace("[current time]", curr_time)
+xml_text = xml_text.replace("```xml","")
+xml_text = xml_text.replace("```", "")
     
 # Create a download button
 st.download_button(
