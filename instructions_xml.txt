@@ -37,8 +37,6 @@ AT = Accused template
 BA = Bail conditions
 CP = CPIC Level 2 or criminal records
 MN = Canvassing details
-MN = AI comments
-
 
 Role code:
 11 = Suspect
