@@ -82,8 +82,8 @@ def generate_xml():
     
     # replace some variables. this applies to the xml text
     xml_text = xml_text.replace("<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
-    xml_text = xml_text.replace("@9999/99/99", curr_date)
-    xml_text = xml_text.replace("@9999", curr_time)
+    xml_text = xml_text.replace("@9999/99/99", str(curr_date))
+    xml_text = xml_text.replace("@9999", str(curr_time))
     xml_text = xml_text.replace("```xml","")
     xml_text = xml_text.replace("```", "")
     
