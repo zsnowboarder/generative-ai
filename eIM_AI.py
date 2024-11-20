@@ -120,15 +120,14 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The possibilities are endless.")
     st.text_area("Response", result, height=800)
 
-    
-# Create a download button
-if st.download_button(
-    label="Generate Report",
-    help="Generate a report with entities/text pages with correct naming conventions and send it to CPIC Transcription.",
-    data = lambda:generate_xml(),
-    file_name="ai_report.xml",
-    mime="text/plain"):
-    st.write("xml generated")
+if st.button("Generate Report", help="Generate report"):
+ xml_text = generate_xml()
+ 
+ st.download_button(
+  label="Download Report",
+  data = xml_text,
+  file_name="ai_report.xml",
+  mime="text/plain")
 
 
 # In[ ]:
