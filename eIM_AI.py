@@ -115,9 +115,9 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     st.text_area("Response", result, height=800)
 
 xml_text = generate(instructions_xml, new_data)
-xml_text = replace(xml_text,"<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
-xml_text = replace(xml_text, "[current date]", curr_date)
-xml_text = replace(xml_text, "[current time]", curr_time)
+xml_text = xml_text.replace("<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
+xml_text = xml_text.replace("[current date]", curr_date)
+xml_text = xml_text.replace("[current time]", curr_time)
     
 # Create a download button
 st.download_button(
