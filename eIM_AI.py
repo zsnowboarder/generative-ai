@@ -40,7 +40,7 @@ def generate_xml():
     return xml_text
 
 def generate(inst_text, prompt_text):
- resp_text = "Account low in credit balance. User has disabled connection to Vertex AI."
+ resp_text = "You're missing out on experiencing the full potential of AI! The author's account currently has a low credit balance, and they've also disabled the connection to Vertex AI, limiting what this AI can showcase."
  return resp_text
 
 #random_report = "Victim was walking on the street. A stranger later identified as SIMPSON, Bart (1992/01/02) shouted racial slurs and attacked victim for no reason. Witness BROWN, Tom called police who arrived and arrested the suspect."
