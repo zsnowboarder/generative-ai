@@ -49,7 +49,7 @@ def generate_xml():
 
 def generate(inst_text, prompt_text):
     if no_credits == True:
-     return inst_text
+     return "Account low in credit balance. User has disconnected connection to Vertex AI services."
     vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
     model = GenerativeModel(
         "gemini-1.5-pro-002",
