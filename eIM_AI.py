@@ -25,7 +25,8 @@ curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
 
 # get the credentials from streamlit secrets
-credentials_info = st.secrets["gsc_connections"]
+#credentials_info = st.secrets["gsc_connections"]
+credentials_info = ""
 credentials = service_account.Credentials.from_service_account_info(credentials_info)
 
 def initialize_vertex_client():
