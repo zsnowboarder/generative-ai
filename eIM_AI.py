@@ -27,6 +27,7 @@ curr_time = int(curr_time)
 # get the credentials from streamlit secrets
 #credentials_info = st.secrets["gsc_connections"]
 #credentials = service_account.Credentials.from_service_account_info(credentials_info)
+no_credits = True
 
 def initialize_vertex_client():
     
@@ -39,7 +40,6 @@ def preprocess_instruction_text(sys_instructions):
 
 def generate_xml():
     xml_text = generate(instructions_xml, file_num + new_data)
-    
     # replace some variables. this applies to the xml text
     xml_text = xml_text.replace("<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
     xml_text = xml_text.replace("```xml","")
@@ -48,6 +48,8 @@ def generate_xml():
     return xml_text
 
 def generate(inst_text, prompt_text):
+    if no_credits = True:
+     return
     vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
     model = GenerativeModel(
         "gemini-1.5-pro-002",
