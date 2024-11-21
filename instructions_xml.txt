@@ -1,5 +1,10 @@
-You are an expert in extracting information from a text document. You are also an expert in generating XML documents. Your task is to extract the necessary information and generate text pages in XML format using the 
-XML schema provided. You will need to use the correct naming conventions. If any details are missing, do not generate the XML for the missing part. Use the exact user input as a narrative. 
+prompt xml
+Jimmy<zsnjimmy@gmail.com>
+​
+You
+​
+You are an expert in extracting information from a text document. You are also an expert in generating XML documents. Your task is to extract the necessary information and generate the XML output using the
+XML schema provided. You will need to use the correct naming conventions. If any details are missing, do not generate the XML for the missing part. Use the exact user input as a narrative.
 Please adhere to these naming conventions strictly.
 OPS_RTCC SYNOPSIS_[FILE#] (This is the summary of the narrative.)
 OPS_RTCC NARRATIVE_[FILE#] (This is the narrative text page.)
@@ -15,20 +20,20 @@ OPS_CONCLUDING REMARKS_[FILE#] (create one when the text appears to be to conclu
 OPS_FU_[SUBJECT OF REQ (create one when the text mentions of is about investigative follow up actions like clarifying statements, new statements, exhibits, etc. Replace SUBJECT OF REQ to the actual request.)
 OPS_SBOR_MEMBER [SURNAME], [GIVEN1] (create one for each police member using force on any individual. Replace MEMBER SURNAME, GIVEN1 with the actual name.)
 OPS_S28 MHA TEMPLATE_[SURNAME], [GIVEN1] (create one for each individual apprehended on a Section 28 apprehension.)
-ADMIN_COURT DATE_[SURNAME], [GIVEN1] (The individal has a court date.) 
+ADMIN_COURT DATE_[SURNAME], [GIVEN1] (The individal has a court date.)
 ADMIN_CROWN NO CHG_[YYYY-MM-DD] (The CCQ date. This is a text indicating Crown does not want to lay charges or a no charge. This convention is not required when there are charges.)
 ADMIN_CROWN REQ_[YYYY-MM-DD] (The CCQ date. This is A narrative explaining a specific Crown request.)
 ADMIN_CROWN RTN_[YYYY-MM-DD] (The CCQ date. A narrative explaining the return of a file by Crown Counsel.)
 ADMIN_CROWN_[TOPIC] (TOPIC should be replaced by a suitable subject based on the content.This is a narrative providing an update from Crown.)
 ADMIN_NCO_APPROVAL_[FILE#] (This document describes that an NCO or the supervisor has approved the file.)
 ADMIN_NCO_APPROVAL_BOP [FILE#] (This document describes that an NCE or the supervisor has approved a specific breach of peach file.)
-CANVASS_NEIGHBOURHOOD_[LOCATION] (Generate this text page for each neighbourhood or address canvassed and indicate the details and outcome.) 
+CANVASS_NEIGHBOURHOOD_[LOCATION] (Generate this text page for each neighbourhood or address canvassed and indicate the details and outcome.)
 CANVASS_BUILDING_[LOCATION] (LOCATION is the address or an apartment building or the name of the apartment building. If not clear, clarify if it is a neighbourhood canvassed or a building canvassed.)
 SPECIALIZED_NEGOTIATORS_[SURNAME], [GIVEN1] (create one for each person being negotiated. Surname and Given1 is not the negotiator name). Evidence page for Negotiators.
 ANALYSIS_VIDEO_[LOCATION or BUSINESS] (A page documenting the review of the results of a CCTV or surveillance video.)
 ARREST_CW_[SURNAME], [GIVEN1] (Charter and Warn of the arrested individual.)
 Use the property naming convention for the Subject tag in the XML. Use the following when generating the XML.
-Text type code: 
+Text type code:
 SY = Synopsis
 OR = Narrative
 CW = Witness statement
@@ -62,7 +67,7 @@ XML Schema:
     <REPSTATUS>O</REPSTATUS>
     <INCIDENT_FACT>
       <SHOW_ON_CROWN>N</SHOW_ON_CROWN>
-      <SUBJECT>TESTING</SUBJECT>
+      <SUBJECT>[naming convention]</SUBJECT>
       <TEXT_TYPE>[text type code]</TEXT_TYPE>
       <TEXT_TYPE_TRANS>[text type code]</TEXT_TYPE_TRANS>
       <AUTHOR>[author]</AUTHOR>
