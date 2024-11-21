@@ -25,8 +25,8 @@ curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
 
 def preprocess_instruction_text(sys_instructions):
-    processed_text = xml_text.replace("@9999/99/99", str(curr_date))
-    processed_text = xml_text.replace("@9999", str(curr_time))
+    processed_text = sys_instructions.replace("@9999/99/99", str(curr_date))
+    processed_text = processed_text.replace("@9999", str(curr_time))
     return processed_text
  
 def generate_xml():
