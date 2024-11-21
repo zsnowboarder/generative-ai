@@ -24,14 +24,16 @@ now = datetime.datetime.now()
 curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
 
-
+def preprocess_instruction_text(sys_instructions):
+    processed_text = xml_text.replace("@9999/99/99", str(curr_date))
+    processed_text = xml_text.replace("@9999", str(curr_time))
+    return processed_text
+ 
 def generate_xml():
     xml_text = generate(instructions_xml, new_data)
     
     # replace some variables. this applies to the xml text
     xml_text = xml_text.replace("<CASE_FILE_NUMBER>2024-","<CASE_FILE_NUMBER>")
-    xml_text = xml_text.replace("@9999/99/99", str(curr_date))
-    xml_text = xml_text.replace("@9999", str(curr_time))
     xml_text = xml_text.replace("```xml","")
     xml_text = xml_text.replace("```", "")
     
@@ -49,7 +51,9 @@ with open("/mount/src/generative-ai/instructions.txt", "r") as file:
 
 # this is the xml instruction
 with open("/mount/src/generative-ai/instructions_xml.txt", "r") as file:
-    instructions_xml = file.read()
+    instructions_xml = file.read()    
+    instructions_xml = preprocess_instruction_text(instructions_xml)
+
 
 #st.image("https://i1.wp.com/bcsilveralert.ca/wp-content/uploads/2014/09/Vancouver-Police.png?w=200")
 st.title("Unavailable")
