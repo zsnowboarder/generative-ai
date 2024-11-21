@@ -77,7 +77,7 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder.write("Please be patient as it may take me a few seconds to generate a response with this trial version........")
     result = generate(instructions, new_data)
     placeholder.empty()
-    placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The officer can even indicate what needs to be done and I will do it with proper naming conventions.  The possibilities are endless.")
+    placeholder.write("With this proof of concept, we demonstrate the potential of AI to significantly reduce repetitive tasks, allowing officers to spend more time on the road. By leveraging AI, we can seamlessly add entities and text pages based on details extracted from the officer's narrative. Officers can specify their requirements, and I will ensure everything is done with proper naming conventions. Importantly, officers retain full control over the edits before finalizing them. The possibilities for enhancing efficiency and productivity are truly endless.")
     st.text_area("Response", result, height=800)
 
 if st.button("Generate Report", help="I will generate everything including entities and text pages ready to be sent to CPIC Transcription."):
