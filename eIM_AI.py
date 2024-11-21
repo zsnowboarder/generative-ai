@@ -48,7 +48,7 @@ def generate_xml():
     return xml_text
 
 def generate(inst_text, prompt_text):
-    if no_credits = True:
+    if no_credits == True:
      return
     vertexai.init(project="eim-convention", location="northamerica-northeast1", credentials=credentials)
     model = GenerativeModel(
